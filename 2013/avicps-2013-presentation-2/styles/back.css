@@ -1,0 +1,206 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+article {
+  -webkit-transition: background 0.6s ease;
+  -moz-transition: background 0.6s ease;
+  -o-transition: background 0.6s ease;
+  -ms-transition: background 0.6s ease;
+  transition: background 0.6s ease;
+  display: none;
+}
+article.bespoke-parent {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  -webkit-perspective: 600px;
+  -moz-perspective: 600px;
+  -ms-perspective: 600px;
+  perspective: 600px;
+  background-color: #bbb;
+}
+.bespoke-slide {
+  -webkit-transition: all 0.6s ease;
+  -moz-transition: all 0.6s ease;
+  -o-transition: all 0.6s ease;
+  -ms-transition: all 0.6s ease;
+  transition: all 0.6s ease;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: -webkit-flex;
+  display: box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -o-box-orient: vertical;
+  -ms-box-orient: vertical;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -o-box-pack: center;
+  -ms-box-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -o-box-align: center;
+  -ms-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  text-align: center;
+  width: 800px;
+  height: 600px;
+  position: absolute;
+  top: 50%;
+  margin-top: -300px;
+  left: 50%;
+  margin-left: -400px;
+  background: #fff;
+  padding: 40px;
+  -webkit-border-radius: 24px;
+  border-radius: 24px;
+}
+.bespoke-before {
+  -webkit-transform: translateY(640px);
+  -moz-transform: translateY(640px);
+  -o-transform: translateY(640px);
+  -ms-transform: translateY(640px);
+  transform: translateY(640px);
+}
+.bespoke-after {
+  -webkit-transform: translateX(840px);
+  -moz-transform: translateX(840px);
+  -o-transform: translateX(840px);
+  -ms-transform: translateX(840px);
+  transform: translateX(840px);
+}
+.bespoke-inactive {
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  pointer-events: none;
+}
+.bespoke-after-1 {
+  opacity: 0.5;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  filter: alpha(opacity=50);
+}
+.bespoke-active {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+}
+.bespoke-bullet {
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.bespoke-bullet-inactive {
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+}
+li.bespoke-bullet-inactive {
+  -webkit-transform: translateX(16px);
+  -moz-transform: translateX(16px);
+  -o-transform: translateX(16px);
+  -ms-transform: translateX(16px);
+  transform: translateX(16px);
+}
+.bespoke-bullet-active {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+}
+.emphatic,
+.emphatic .bespoke-slide {
+  background: #fff;
+}
+code {
+  display: block;
+  padding: 26px !important;
+}
+body {
+  font-family: "Open Sans", helvetica, arial, sans-serif;
+  font-size: 18px;
+  color: #000;
+}
+h1 {
+  font-size: 64px;
+  line-height: 82px;
+  letter-spacing: -2px;
+  margin-bottom: 16px;
+}
+h2 {
+  font-size: 42px;
+  letter-spacing: -1px;
+  margin-bottom: 12px;
+}
+h3 {
+  font-size: 24px;
+  font-weight: normal;
+  margin-bottom: 12px;
+  color: #000;
+}
+h4 {
+  font-size: 18px;
+  font-weight: normal;
+  margin-bottom: 9px;
+  color: #000;
+}
+hr {
+  visibility: hidden;
+  height: 20px;
+}
+ul:not(<.outline) {
+  list-style: none;
+}
+li:not(<.outline) {
+  margin-bottom: 12px;
+  font-size: 200%;
+}
+.outline {
+  -webkit-box-pack: left;
+  -moz-box-pack: left;
+  -o-box-pack: left;
+  -ms-box-pack: left;
+  -webkit-justify-content: left;
+  justify-content: left;
+  -webkit-box-align: left;
+  -moz-box-align: left;
+  -o-box-align: left;
+  -ms-box-align: left;
+  -webkit-align-items: left;
+  align-items: left;
+  text-align: left;
+}
+p {
+  margin: 0 100px 12px;
+  line-height: 22px;
+}
+a {
+  color: #ffa500;
+  text-decoration: none;
+}
+.orange {
+  color: #ffa500;
+}
+.huge {
+  font-size: 600%;
+}

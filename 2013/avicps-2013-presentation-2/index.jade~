@@ -1,0 +1,82 @@
+!!! 5
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    title Compositional Equations
+
+    //- Check out 'src/bower_components/prism/' for available themes
+    link(rel='stylesheet', type='text/css', href='bower_components/prism/prism-tomorrow.css')
+
+    link(rel='stylesheet', type='text/css', href='styles/main.css')
+    
+  body
+
+    article
+
+      section
+        h1 Compositional Equations
+
+      section
+        h2 Syntax
+        h3.bullet We start with a small term language \(t\)
+
+          script(type="math/tex; mode=display")
+            |\begin{aligned}
+            |  t ::= & v_i & | & t + t \\
+            |  | & t \times t & | & t^{-1} \\ 
+            |  | & {\mathtt P} ~ t \\ 
+            |  | & \mathbb{R}
+            |\end{aligned}	 
+        
+        h3.bullet (obviously not turing-complete)
+
+      section
+        h2 Semantics
+        h3.bullet Standard strict small step evaluation relation \(\longrightarrow\) and its reflexive, transitive closure \(\Downarrow\), e.g:
+
+        h3.bullet
+          script(type="math/tex; mode=display")
+            | \frac{\tau_1 \longrightarrow \tau_2}{\tau_1 \times r \longrightarrow (\tau_2 \times r)}
+
+        h3.bullet
+          script(type="math/tex; mode=display")
+            | 39 + 1 + 2 \Downarrow 42
+
+      section
+        h2 Computing Functions: \(\tau \leadsto f\)
+        h3.bullet Let \(\mathbb{D} \subseteq \mathbb{R}\) be an open interval, \(\mathbb{X} \subseteq \mathbb{D} \rightarrow \mathbb{R}\) be a subset of all \(n\)-times differentiable real valued functions on that interval and \(f : \mathbb{X}^p \times \mathbb{D} \rightarrow \mathbb{R} \) an \(n\)-times diffeerentiable function, then:
+
+          script(type="math/tex; mode=display")
+            | \frac{\tau[v_i := x_i(t)] \Downarrow f(\bar{x}, t)}{\tau \leadsto f}
+
+        h3.bullet
+          script(type="math/tex; mode=display")
+            | \frac{\tau \leadsto f}{\tau[v_i := x_i(t)] \Downarrow f(\bar{x}, t)}
+
+      section
+        h2 Well-formed terms always compute a function
+        h3.bullet 
+          script(type="math/tex; mode=display")
+            | \frac{\tau[v_i := x_i(t)] \Downarrow r \text{  for some } x_i \text{ and } t}{\exists f . \tau \leadsto f}
+
+      
+      section
+        h2 Lifting
+        h3.bullet To include AD, we parameterize \(t\) over the order of total differentiation \(n\) and number of parameters \(p\):
+
+          script(type="math/tex; mode=display")
+            | \begin{aligned}
+            | t^{(n,p)} ::= & v_i             & | & t^{(n,p)} + t^{(n,p)} \\
+            |  | & t^{(n,p)} \times t^{(n,p)} & | & (t^{(n,p)})^{-1} \\ 
+            |  | & {\mathtt P} ~ t^{(n,p)}    & | & \mathbb{R}^{n+1 , p+1}
+            | \end{aligned}
+
+
+    script(src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")
+    script(src='bower_components/bespoke.js/dist/bespoke.min.js')
+    script(src='bower_components/bespoke-bullets/dist/bespoke-bullets.min.js')
+    script(src='bower_components/bespoke-hash/dist/bespoke-hash.min.js')
+    script(src='bower_components/bespoke-state/dist/bespoke-state.min.js')
+    script(src='bower_components/prism/prism.js')
+    script(src='scripts/main.js')

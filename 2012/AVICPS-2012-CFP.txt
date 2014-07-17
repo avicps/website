@@ -1,0 +1,50 @@
+﻿3rd Workshop on
+Analytic Virtual Integration of Cyber-Physical Systems
+
+AVICPS '12 is held in conjunction with the
+33rd IEEE Real-Time Systems Symposium (RTSS '12)
+December 4, San Juan, Puerto Rico
+
+www.analyticintegration.org
+
+Cyber Physical Systems (CPS) play a key role in an ever increasing number of industries. For example, over 80% of the innovations in automotive systems are for on cyber-enabled system capabilities. Modern aircraft are carefully co-designed and tightly integrated CPS machines. This trend is also demonstrated by modern medical systems. The movement towards increasing dependency on software is driven by the fact that software enables the delivery of a large number of customized capabilities in a product using a relatively small number of physical and computing platforms.
+
+
+However, the co-design of physical platforms, computer systems, and embedded software systems, and their tight integration also creates a high degree of complexity of interactions within and across these systems that far exceeds the capability of existing system composition and analysis technologies.  These technologies are of paramount importance to industries that integrate independently-developed parts into their final products (e.g. automotive and avionics). Indeed, analytical models of such systems are currently used to predict different system-level properties. However, such predictions are often derived on a property-by-property basis by different teams leading to inconsistent assumptions and invalid conclusions.
+
+
+The lack of effective techniques to obtain sound system-wide analytical results prevents the discovery of design flaws that stem from the interaction complexity of the system parts, until the system is physically integrated. Due to such flaws, the system integration time often exceeds 50% of the total development time for non-safety critical applications. In safety critical systems, such as avionics, the system integration and certification time often exceeds 70% of total development time and costs. Thus, the success of next generation CPS systems demands system-wide architecture design patterns and supporting technologies -- in particular analysis techniques -- that can integrate legacy components, COTS components and co-designed new components in such a way that properties such as real time, safety, fault tolerance and security can be analyzed and predicted before the systems are physically built. Moreover, it is necessary to have a system-wide composition model that integrates the different analyses into a single semantically consistent framework to avoid conflicting results.
+
+
+This workshop focuses on analytical virtual system composition technologies including, but not limited to the following:
+
+
+1. A quantitative and early analysis of end-to-end system architecture performance that incorporates real hardware details (e.g. multicores, memory architectures, I/O, network-on-chip, etc.) and workloads (e.g. video streams, weather data, GPS, etc.)
+2. Fault tolerance technologies against combined cyber faults and physical system disturbances.
+3. Safety analysis such as model checking for mixed criticality CPS applications, for example, flight management systems and/or safe  interoperability of medical devices.
+4. System level schedulability optimization technologies that support the combinatory optimization of task allocation, I/O and network traffic routing.
+5. Security protocol development and verification techniques for CPS applications.
+6. Models for describing/quantifying the environment that such systems must operate in.
+7. Quantitative measurements of the advantages of virtual integration.
+
+
+The goal of this workshop is to explore architecture design patterns, tools and the theoretical analytical foundations for creating common system-wide composition models where key properties can be studied and guarantees provided before the start of actual development. Of particular interest are the case studies on the challenges of expressing the properties of the final product in terms of component properties and the architecture that governs their interactions. Both solutions and/or open problems are welcome.
+
+PAPER SUBMISSION
+
+Submissions should be in two-column, single-spaced, 10 pt format.  We are soliciting two types of papers:
+1. position papers (at most 4 pages) describing preliminary ideas and results;
+2. research papers (at most 8 pages) presenting more mature ideas and results.
+
+
+For more details please see http://www.analyticintegration.org.
+
+IMPORTANT DATES
+Submission deadline:                September 19, 2012 (extended)
+Notification:                        October 24, 2012
+Camera-ready version:        November 3, 2012
+Workshop:                        December 4, 2012
+
+ORGANIZERS
+Sagar Chaki. Software Engineering Institute (SEI) (co-chair)
+Oleg Sokolsky. University of Pennsylvania. (co-chair)

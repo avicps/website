@@ -1,0 +1,140 @@
+
+                          AVICPS 2013
+
+                  The 4th Analytic Virtual 
+        Integration of Cyber-Physical Systems Workshop
+
+             Vancouver, Canada, December 3, 2013. 
+                  (Co-located with RTSS 2013)
+      
+           *** Paper Submission: October 11 (extended) ***
+
+                       CALL FOR PAPERS
+
+The Analytic Virtual Integration Cyber-Physical Systems (AVICPS)
+workshop focuses on analytic techniques that enable the early
+discovery of faults in CPS before the system is integrated or its
+parts are built. Such an approach is known as analytic virtual
+integration. The objective is to discover and resolve problems early
+during the design and implementation phases where cost impact is low.
+
+Topics of interest include, but are not limited to:
+   * A quantitative and early analysis of end-to-end system 
+     architecture performance that incorporates realistic hardware 
+     details (e.g. multi-core, memory architectures, I/O, 
+     network-on-chip, etc.) and workloads (e.g. video streams, 
+     weather data, GPS, critical messages, etc.)
+   * Fault tolerance technologies for handling the combination 
+     of faults in computing and communication hardware and software 
+	 and physical system disturbances.
+   * Safety analysis such as model checking for mixed criticality 
+     CPS applications (e.g., flight management systems and safe 
+     interoperability of medical devices).
+   * System level optimization technologies that support the 
+     combinatorial optimization of task scheduling and allocation, 
+     I/O, and network traffic routing.
+   * Security protocol development and verification techniques for 
+     CPS applications.
+   * Modeling, simulation, and verification techniques for virtual 
+     integration.
+   * Models for describing or quantifying the environment that 
+     systems must operate in.
+   * Quantitative measurements of the advantages of virtual 
+     integration.
+   * Formal methods for defining and reasoning about internal and
+     external interfaces of the system and its parts.
+   * Cross-domain compositional theories and technologies for CPS.
+
+
+SUBMISSION
+
+The AVICPS workshop welcomes original contributions on
+theoretical foundation, tools, and evaluations.  Of particular 
+interest are case studies on challenges of expressing properties 
+of systems in terms of their components and the architecture 
+that governs their interactions. Both solutions and open problems 
+are welcome.
+
+Researchers and practitioners are encouraged to submit two types 
+of papers:
+
+    * Research papers that present novel ideas, mature tools, 
+      results, and advancement of the state-of-the-art.
+    * Position papers that describe ongoing work, less
+      mature work, or new research directions. 
+
+Submissions should be no more than 8 pages (for research
+papers) and 4 pages (for position papers) in two-column format. 
+Templates and author guidelines are available for LaTeX and 
+Microsoft Word. All figures and references must fit within the 
+specified page limits. 
+
+
+PUBLICATION
+
+Authors of accepted papers may choose one of the following 
+alternatives.
+
+    * To include their paper in formal electronic proceedings 
+      published by LiU Electronic Press. The proceedings are 
+      given both ISBN and ISSN numbers. Authors retain the 
+      copyright of their work.
+    * To not include it in the proceedings, thus make it possible 
+      to refine and submit the work elsewhere. Only a title and a 
+      short abstract of the paper will be available in the 
+      proceedings. An informal copy of the accepted paper will 
+      be available on the AVICPS website.
+
+Regardless of the author's choice of dissemination, the reviewing 
+process and the presentation time at the workshop will be the same. 
+For all accepted papers, at least one of the authors must register 
+and present the paper at the workshop.
+
+
+IMPORTANT DATES
+
+Paper Submission: Oct. 11 (extended)
+Author Notification: Oct. 30, 2013
+Camera Ready: Nov. 10, 2013
+AVICPS Workshop: Dec. 3, 2013
+
+
+WORKSHOP ORGANIZATION
+
+Program Co-Chairs
+* David Broman. UC Berkeley, USA, and Linkoping University, Sweden
+* Gabor Karsai. Vanderbilt University, USA 
+
+Program Committee
+Manfred Broy, Technical University Munich, Germany 
+Eric Feron, Georgia Institute of Technology, USA 
+Peter Fritzson,  Linkoping University, Sweden 
+Jerome Hugues, ISAE, France 
+Mirko Jakovljevic, TTTech, Austria
+Russell Kegley, Lockheed Martin, USA
+Doo-Hyun Kim, Konkuk University, South Korea
+Henrik Nilsson, University of Nottingham, UK
+Roman Obermaisser, University of Siegen, Germany
+Jim Paunicka, Boeing, USA 
+Andre Platzer, Carnegie Mellon, USA
+Linh Thi Xuan Phan, University of Pennsylvania, USA 
+Franz Rammig, Univerity of Paderborn, Germany
+Walid Taha, Halmstad University, Sweden
+Stavros Tripakis, University of California, Berkeley, USA
+Shige Wang, GM Research, USA
+Michael Whalen, University of Minnesota, USA
+Dirk Zimmer, DLR Oberpfaffenhofen, Germany
+
+
+For further information, including submission guidelines, see the
+AVICPS Workshop website: http://www.analyticintegration.org/
+
+
+
+
+
+
+
+
+
+

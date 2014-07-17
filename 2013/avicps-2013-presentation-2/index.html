@@ -1,0 +1,118 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>AVICPS 2013</title><link href="styles/OpenSans.css"><link rel="stylesheet" type="text/css" href="bower_components/prism/prism-tomorrow.css"><link rel="stylesheet" type="text/css" href="styles/main.css"></head><body><article><section class="title-slide"><h1>Modular Equations <hr></h1><h2>AVICPS Workshop, Vancouver 2013-12-3 </h2><script type="math/tex;">\newcommand{\unk}[2]{\mathtt{u}_{#1,#2}}
+\newcommand{\envonly}{(\mathbb{D}, \bar{x}, v)}
+\newcommand{\env}{\envonly \vdash}
+\newcommand{\der}[1]{\mathtt{d}^{(#1)}}
+\newcommand{\xdomain}{(\mathbb{D} \rightarrow \mathbb{R})^{p}}
+\newcommand{\evalad}[1]{\xrightarrow{(#1,p)}}
+\newcommand{\lift}[3]{\lceil #3 \rceil^{#1}_{#2}}
+\newcommand{\tnp}{t^{(n,p)}}
+\newcommand{\enp}{e^{(n,p)}}
+\newcommand{\red}[2]{\Downarrow^{(#1,#2)}}
+\newcommand{\redad}[1]{\Downarrow^{(#1,p)}}
+\newcommand{\reduce}{\Downarrow}
+\newcommand{\Dermatrix}[3]{\mathcal{D}^{(#1,#2)}(#3, \bar{x}, v)}
+\newcommand{\Dermatrixshort}[3]{\mathcal{D}^{(#1,#2)}(#3)}
+\newcommand{\Multop}{\star}
+\newcommand{\Compop}{\bullet}</script></section><section>       <h2 class="title">Outline </h2><hr class="hr"><div style="columns: 2 auto; column-gap: normal" class="top"><table Style="width:100%"><tr><td Style="vertical-align: top; padding: 10px"><ul class="outline"><li><h3>Motivation: 3 Missing Features in Modelica</h3></li><li> <h3>The Common Cause: Index Reduction</h3></li><li> <h3>The Solution: Automatic Differentiation </h3></li></ul></td><td align="right"><img Style="border-radius: 12px" src="img/siemens.jpg" height="80%" class="title-pic"></td></tr></table></div><table class="foot"><tr><td class="leftfoot"><span>1</span></td><td class="middlefoot">Modular equations - <a href="mailo:christoph.hoeger@tu-berlin.de">christoph.hoeger@tu-berlin.de</a></td><td class="rightfoot"><img src="img/TUBerlin_Logo_rot.svg" height="60px"></td></tr></table></section><section><h2 class="title">Feature I: Separate Compilation </h2><hr class="hr"><div class="top"><h3 class="bullet">Compile models (i.e. especially equations) <em>once</em> and simulate them afterwards without having to resort to runtime symbolic algebra or numeric differentiation.<p><img Style="padding:20px" src="img/Zeichnung-1.svg" width="80%" class="centered"></p></h3><h3 class="bullet">Build a semantic analysis upon this foundation. Distinguish between compile-time, link-time and run-time checks.</h3></div><table class="foot"><tr><td class="leftfoot"><span>2</span></td><td class="middlefoot">Modular equations - <a href="mailo:christoph.hoeger@tu-berlin.de">christoph.hoeger@tu-berlin.de</a></td><td class="rightfoot"><img src="img/TUBerlin_Logo_rot.svg" height="60px"></td></tr></table></section><section><h2 class="title">Feature II: Structural Dynamics </h2><hr class="hr"><div class="top"><table><tr><td Style="vertical-align: top"><h3 class="bullet">Allow many different <em>modes</em> during simulation.</h3><h3 class="bullet">Allow a model to <em>compute</em> the next mode.</h3></td><td><img src="img/nand.png"></td></tr></table></div><table class="foot"><tr><td class="leftfoot"><span>3</span></td><td class="middlefoot">Modular equations - <a href="mailo:christoph.hoeger@tu-berlin.de">christoph.hoeger@tu-berlin.de</a></td><td class="rightfoot"><img src="img/TUBerlin_Logo_rot.svg" height="60px"></td></tr></table></section><section><h2 class="title">Feature III: Implementation Agnostic Integration </h2><hr class="hr"><div class="top"><h4 class="overlay"><code class="language-modelica"><pre>model Pendulum
+  Real x(start=0.1),y(start=0.9, fixed=true),vx,vy,F;
+  equation
+    x^2 + y^2 = 1;
+    vx = der(x);
+    vy = der(y);
+    der(vx) = F*x;
+    der(vy) = F*y - 9.81;
+end Pendulum;
+</pre></code></h4><h4 class="bullet overlay"><code class="language-modelica bullet"><pre>model Pendulum
+  function f
+    input Real x; input Real y; output Real r;
+  algorithm
+    r := x^2 + y^2 - 1;
+  end f;
+  
+  Real x(start=0.1),y(start=0.9, fixed=true),vx,vy,F;
+  equation
+    f(x,y) = 0;
+    vx = der(x);
+    vy = der(y);
+    der(vx) = F*x;
+    der(vy) = F*y - 9.81;
+end Pendulum;
+</pre></code></h4><h4 class="bullet overlay"><code class="language-modelica"><pre>model Pendulum
+  function f
+    input Real x; input Real y; output Real r;
+  algorithm
+    if (x &lt;&gt; 0) then r := x^2 + y^2 - 1;
+    else if (y &lt;&gt; 0) then r := y^2 - 1;
+         else r := -1; end if; 
+    end if;
+  end f;
+  
+  Real x(start=0.1),y(start=0.9, fixed=true),vx,vy,F;
+  equation
+    f(x,y) = 0; 
+    vx = der(x);  vy = der(y);
+    der(vx) = F*x;  der(vy) = F*y - 9.81;
+end Pendulum;</pre></code></h4><h4 class="bullet overlay"><img src="img/dymola.png"></h4></div><table class="foot"><tr><td class="leftfoot"><span>4</span></td><td class="middlefoot">Modular equations - <a href="mailo:christoph.hoeger@tu-berlin.de">christoph.hoeger@tu-berlin.de</a></td><td class="rightfoot"><img src="img/TUBerlin_Logo_rot.svg" height="60px"></td></tr></table></section><section class="interlude-slide"><h1>The Reason: <strong>Index Reduction</strong></h1></section><section><h2 class="title">Index Reduction: Basics </h2><hr class="hr"><div class="top"><h3 class="bullet">Consider the ideal representation of the cartesian Pendulum:<script type="math/tex; mode=display">\begin{align}
+ x^2 + y^2 &=& 1\\
+ \ddot{x} &=& F x \\
+ \ddot{y} &=& F y - 9.81
+\end{align}</script></h3><div class="bullet"><h3>Sorting equations:<script type="math/tex; mode=display">\begin{align}
+ x &\mapsto& x^2 + y^2 &=& 1\\
+ F &\mapsto& \ddot{x} &=& F x \\
+ \ddot{y} &\mapsto& \ddot{y} &=& F y - 9.81
+\end{align}</script></h3><h3>(Maximizing the dots on the left-hand side)</h3><h3>Problem: \(x\) occurs two times derived, but is computed directly.</h3></div></div><table class="foot"><tr><td class="leftfoot"><span>5</span></td><td class="middlefoot">Modular equations - <a href="mailo:christoph.hoeger@tu-berlin.de">christoph.hoeger@tu-berlin.de</a></td><td class="rightfoot"><img src="img/TUBerlin_Logo_rot.svg" height="60px"></td></tr></table></section><section><h2 class="title">Pryce&#39; Method </h2><hr class="hr"><div class="top"><h3 class="bullet">The <em>dual</em> Problem (in LP sense) to the assignment problem introduces <em>slack variables</em> \(\bar{c}, \bar{d}\) and a consistency condition:<script type="math/tex; mode=display">d_j - c_i \geq \sigma_{ij}</script></h3><h3>where \(\sigma_{ij}\) is the highest derivative of variable \(j\) in equation \(i\)</h3><h3 class="bullet">The interpretation of \(c_i\) is the "index" of equation \(i\), i.e. the number of times it needs to be derived, \(d_j\) is the (maximal) degree of derivation of variable \(j\) in the model.</h3><h3 class="bullet">The dual goal is to <em>minimize</em>:<script type="math/tex; mode=display">\sum d_j - \sum c_i</script></h3></div><table class="foot"><tr><td class="leftfoot"><span>6</span></td><td class="middlefoot">Modular equations - <a href="mailo:christoph.hoeger@tu-berlin.de">christoph.hoeger@tu-berlin.de</a></td><td class="rightfoot"><img src="img/TUBerlin_Logo_rot.svg" height="60px"></td></tr></table></section><section><h2 class="title">Applied to Pendulum: </h2><hr class="hr"><div class="top"><h3 class="bullet">Incidence matrix:<script type="math/tex; mode=display">\sigma = \begin{vmatrix} 
+{\color{grey} x} & {\color{grey} y} & {\color{grey} F} & \\
+0 & 0 & - \infty & {\color{grey} x^2 + y2 - 1}  \\
+2 & -\infty & 0 & {\color{grey} \ddot{x} - Fx} \\
+-\infty & 2 & 0 & \color{grey} \ddot{y} - Fy + 9.81\\
+\end{vmatrix}</script></h3><h3 class="bullet">Solution:<script type="math/tex; mode=display">\begin{align*}
+ \bar{c} &=& (2,0,0)\\
+ \bar{d} &=& (2,2,0)\\
+\end{align*}</script></h3></div><table class="foot"><tr><td class="leftfoot"><span>7</span></td><td class="middlefoot">Modular equations - <a href="mailo:christoph.hoeger@tu-berlin.de">christoph.hoeger@tu-berlin.de</a></td><td class="rightfoot"><img src="img/TUBerlin_Logo_rot.svg" height="60px"></td></tr></table></section><section><h2 class="title">Apply the Result </h2><hr class="hr"><div class="top"><h3 class="bullet">Sorting derived equations:<script type="math/tex; mode=display">\begin{align}
+ x &\mapsto& x^2 + y^2 &=& 1\\
+ \dot{x} &\mapsto& x\dot{x} + y\dot{y} &=& 0\\
+ \ddot{x} &\mapsto& {\dot{x}}^2 + x \ddot{x} + {\dot{y}}^2 + y \ddot{y} &=& 0\\
+ F &\mapsto& \ddot{x} &=& F x \\
+ \ddot{y} &\mapsto& \ddot{y} &=& F y - 9.81
+\end{align}</script></h3><h3 class="bullet">Note, that \(\ddot{y}, \ddot{x}, F\) form a <em>connected component</em></h3></div><table class="foot"><tr><td class="leftfoot"><span>8</span></td><td class="middlefoot">Modular equations - <a href="mailo:christoph.hoeger@tu-berlin.de">christoph.hoeger@tu-berlin.de</a></td><td class="rightfoot"><img src="img/TUBerlin_Logo_rot.svg" height="60px"></td></tr></table></section><section class="interlude-slide"><h1>\(n\)-times Differentiable Terms        </h1></section><section><h2 class="title">Syntax </h2><hr class="hr"><div class="top"><h3 class="bullet">We start with a small term language \(t\)<script type="math/tex; mode=display">\begin{aligned}
+ \tau ::= & \unk{n}{d} & | & \tau \oplus \tau \\
+ | & \tau \otimes \tau & | & \phi ~ \tau \\ 
+ | & \mathbb{R}
+\end{aligned}	 </script><h3>\(\tau \in t\), \(\phi\) is one of a set of primitive functions, \(\unk{n}{d}\) are <em>unknowns</em>, \(n, d \in \mathbb{N}\)</h3></h3><h3 class="bullet">(obviously not turing-complete)</h3></div><table class="foot"><tr><td class="leftfoot"><span>9</span></td><td class="middlefoot">Modular equations - <a href="mailo:christoph.hoeger@tu-berlin.de">christoph.hoeger@tu-berlin.de</a></td><td class="rightfoot"><img src="img/TUBerlin_Logo_rot.svg" height="60px"></td></tr></table></section><section><h2 class="title">Semantics </h2><hr class="hr"><div class="top"><h3 class="bullet">Let \(\mathbb{D} \subseteq \mathbb{R}\) be an open interval, \(\bar{x} = (x_1 \ldots x_p) \in \xdomain\) be a vector containing \(n\)-times differentiable real valued functions on that interval.</h3><h3 class="bullet">Strict evaluation relation: \(\env \tau \reduce\ r\) indicates that \(\tau\) evaluates to \(r\) under \(\envonly\), where \(v \in\mathbb{D}\) is the independent variable.</h3><h3 class="bullet"><script type="math/tex; mode=display">\frac{}{\env \mathtt{u}_{n,k} \reduce \der{k}{x_n}(v)}{n \leq p}</script></h3><h3 class="bullet"><script type="math/tex; mode=display">\frac{\env \tau_1 \reduce r_1 ~~ \env \tau_2 \reduce r_2}{\env \tau_1 \oplus \tau_2 \reduce (r_1 + r_2)}</script></h3></div><table class="foot"><tr><td class="leftfoot"><span>10</span></td><td class="middlefoot">Modular equations - <a href="mailo:christoph.hoeger@tu-berlin.de">christoph.hoeger@tu-berlin.de</a></td><td class="rightfoot"><img src="img/TUBerlin_Logo_rot.svg" height="60px"></td></tr></table></section><section>       <h2 class="title">Computing Functions: </h2><hr class="hr"><div class="top"><h3 class="bullet">Let \(f : \xdomain \times \mathbb{D} \rightarrow \mathbb{R} \) an \(n\)-times differentiable function, then:<script type="math/tex; mode=display">\env \tau \leadsto f \Leftrightarrow \env \tau \reduce f(\bar{x}, v)</script></h3><h3 class="bullet">(\(\tau\) computes \(f\))</h3></div><table class="foot"><tr><td class="leftfoot"><span>11</span></td><td class="middlefoot">Modular equations - <a href="mailo:christoph.hoeger@tu-berlin.de">christoph.hoeger@tu-berlin.de</a></td><td class="rightfoot"><img src="img/TUBerlin_Logo_rot.svg" height="60px"></td></tr></table></section><section><h2 class="title">Automatic Differentiation </h2><hr class="hr"><div class="top"><h3 class="bullet">To include AD, we parameterize \(t\) over the order of total differentiation \(n\) and number of parameters \(p\):<script type="math/tex; mode=display">\begin{aligned}
+\tau^{(n,p)} ::= & \unk{m}{k} & | & \tau^{(n,p)} \oplus \tau^{(n,p)} \\
+ | & \tau^{(n,p)} \otimes \tau^{(n,p)} & | & \phi ~ \tau^{(n,p)} \\
+ | & \mathbb{R}^{n+1 , p+1} \\
+\end{aligned}</script></h3><h3 class="bullet">There is a simple relation \(\lceil r \rceil^{(n,p)}\) which <em>lifts</em> \(t\)-terms into \(\tnp\)-terms.</h3></div><table class="foot"><tr><td class="leftfoot"><span>12</span></td><td class="middlefoot">Modular equations - <a href="mailo:christoph.hoeger@tu-berlin.de">christoph.hoeger@tu-berlin.de</a></td><td class="rightfoot"><img src="img/TUBerlin_Logo_rot.svg" height="60px"></td></tr></table></section><section><h2 class="title">Notation </h2><hr class="hr"><div class="top"><h3 class="bullet">General Idea: Generalize Automatic Differentiation (e.g. Dual Numbers) to <em>Derivative Matrices</em><script type="math/tex; mode=display">\Dermatrix{n}{p}{f} = \begin{vmatrix} \partial_{j} \der{i} f(\bar{x}, v) \end{vmatrix} \in \mathbb{R}^{n+1,p+1}</script></h3><h3 class="bullet">Where:<script type="math/tex; mode=display">\begin{align*} 
+\partial_0 f &=& f \\  
+\partial_j f &=& \frac{\partial f}{\partial x_j}, ~~ i \in 1 \ldots p\\
+\der{i} f &=&  \frac{\mathtt{d}^i f}{\mathtt{d}v^i} \\
+\end{align*}</script></h3></div><table class="foot"><tr><td class="leftfoot"><span>13</span></td><td class="middlefoot">Modular equations - <a href="mailo:christoph.hoeger@tu-berlin.de">christoph.hoeger@tu-berlin.de</a></td><td class="rightfoot"><img src="img/TUBerlin_Logo_rot.svg" height="60px"></td></tr></table></section><section><h2 class="title">Integration/Differentiation </h2><hr class="hr"><div class="top"><h3 class="bullet"><script type="math/tex; mode=display">\begin{align*}
+I \begin{vmatrix} r_{0,0} & \cdots & r_{0,p} \\
+     \vdots & \ddots & \vdots \\
+     r_{n,0} & \cdots & r_{n,p} \\                
+   \end{vmatrix} 
+   &= 
+   \begin{vmatrix} r_{0,0} & \cdots & r_{0,p} \\
+     \vdots & \ddots & \vdots \\
+     r_{n-1,0} & \cdots & r_{n-1,p} \\                
+   \end{vmatrix} \\ \\
+\end{align*}</script></h3><h3 class="bullet">\begin{align*}
+ \Delta \begin{vmatrix} r_{0,0} & \cdots & r_{0,p} \\
+     \vdots & \ddots & \vdots \\
+     r_{n,0} & \cdots & r_{n,p} \\                
+   \end{vmatrix} 
+   &= 
+   \begin{vmatrix} r_{1,0} & \cdots & r_{1,p} \\
+     \vdots & \ddots & \vdots \\
+     r_{n,0} & \cdots & r_{n,p} \\                
+   \end{vmatrix}
+\end{align*}</h3></div><table class="foot"><tr><td class="leftfoot"><span>14</span></td><td class="middlefoot">Modular equations - <a href="mailo:christoph.hoeger@tu-berlin.de">christoph.hoeger@tu-berlin.de</a></td><td class="rightfoot"><img src="img/TUBerlin_Logo_rot.svg" height="60px"></td></tr></table></section><section><h2 class="title">Correct Evaluation </h2><hr class="hr"><div class="top"><h3 class="bullet">Again, a strict big step semantics \(\redad{n}\)<script type="math/tex; mode=display">\frac{}{\env \unk{m}{k} \redad{n} \Dermatrix{n}{p}{\der{k} x_m}}              </script></h3><h3 class="bullet">AD-Evaluation of a term yields correct total and partial derivatives.<script type="math/tex; mode=display">\env \tau \leadsto f \Rightarrow \env \lift{n}{p}{\tau} \redad{n} \Dermatrixshort{n}{p}{f}</script></h3></div><table class="foot"><tr><td class="leftfoot"><span>15</span></td><td class="middlefoot">Modular equations - <a href="mailo:christoph.hoeger@tu-berlin.de">christoph.hoeger@tu-berlin.de</a></td><td class="rightfoot"><img src="img/TUBerlin_Logo_rot.svg" height="60px"></td></tr></table></section><section><h2 class="title">Addition</h2><div class="top"><h3 class="bullet">Addition is simply matrix-addition<script type="math/tex; mode=display">\frac{\begin{align*}\env \tau_1 \redad{n} A \\ \env \tau_2 \redad{n} B\end{align*}}{\env \tau_1 \oplus \tau_2 \redad{n} A + B}</script></h3></div><table class="foot"><tr><td class="leftfoot"><span>16</span></td><td class="middlefoot">Modular equations - <a href="mailo:christoph.hoeger@tu-berlin.de">christoph.hoeger@tu-berlin.de</a></td><td class="rightfoot"><img src="img/TUBerlin_Logo_rot.svg" height="60px"></td></tr></table></section><section><h2 class="title">Multiplication</h2><div class="top"><h3 class="bullet">Multiplication is defined recursively<script type="math/tex; mode=display">\frac{\begin{align*}\env \tau_1 \redad{0} \bar{a} \\ \env \tau_2 \redad{0} \bar{b} \end{align*}}
+{\env \tau_1 \otimes \tau_2 \redad{0} \bar{a} \Multop \bar{b}}</script></h3><h3 class="bullet"><script type="math/tex; mode=display">\begin{align*}
+ (\bar{a} \Multop \bar{b})_0 &= a_0 \times b_0 & \\
+ (\bar{a} \Multop \bar{b})_i &= a_i \times b_0 + b_i \times a_0 & i \in 1 \ldots p
+\end{align*}</script></h3></div><table class="foot"><tr><td class="leftfoot"><span>17</span></td><td class="middlefoot">Modular equations - <a href="mailo:christoph.hoeger@tu-berlin.de">christoph.hoeger@tu-berlin.de</a></td><td class="rightfoot"><img src="img/TUBerlin_Logo_rot.svg" height="60px"></td></tr></table></section><section><h2 class="title">Multiplication II</h2><div class="top"><h3 class="bullet">            <script type="math/tex; mode=display">\frac{\begin{align*}
+         \env &\tau_1 \redad{n+1} A \\ 
+         \env &\tau_2 \redad{n+1} B \\
+     \env \Delta(A)& \otimes I(B) \redad{n} C \\ 
+     \env \Delta(B)& \otimes I(A) \redad{n} D\end{align*}}
+    {\env \tau_1 \otimes \tau_2 \redad{n+1} \begin{vmatrix} A_0 \Multop B_0 \\ C + D \end{vmatrix}}</script></h3></div><table class="foot"><tr><td class="leftfoot"><span>18</span></td><td class="middlefoot">Modular equations - <a href="mailo:christoph.hoeger@tu-berlin.de">christoph.hoeger@tu-berlin.de</a></td><td class="rightfoot"><img src="img/TUBerlin_Logo_rot.svg" height="60px"></td></tr></table></section><section class="title"><h2 class="title">In the Paper:</h2><div class="top">        <h3 class="bullet">Composition similar to Multiplication, using the chain-rule</h3><h3 class="bullet">Correctness-proof by structural induction over \(t\)</h3></div><table class="foot"><tr><td class="leftfoot"><span>19</span></td><td class="middlefoot">Modular equations - <a href="mailo:christoph.hoeger@tu-berlin.de">christoph.hoeger@tu-berlin.de</a></td><td class="rightfoot"><img src="img/TUBerlin_Logo_rot.svg" height="60px"></td></tr></table></section><section><h2 class="title">Summary</h2><div class="top"><h2 class="bullet">AD allows for precise, arbitrary order derivation of precompiled terms </h2><h2 class="bullet">This means, we can compile any equation into \(t^{(n,p)}\) and decide during runtime, what \(n\) and \(p\) is required.</h2><h2 class="bullet">Questions?</h2></div><table class="foot"><tr><td class="leftfoot"><span>20</span></td><td class="middlefoot">Modular equations - <a href="mailo:christoph.hoeger@tu-berlin.de">christoph.hoeger@tu-berlin.de</a></td><td class="rightfoot"><img src="img/TUBerlin_Logo_rot.svg" height="60px"></td></tr></table></section></article><script type="text/x-mathjax-config">MathJax.Hub.Config({ TeX: { extensions: ["autobold.js", "extpfeil.js", "color.js"] }});</script><script src="scripts/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script src="bower_components/bespoke.js/dist/bespoke.min.js"></script><script src="bower_components/bespoke-bullets/dist/bespoke-bullets.min.js"></script><script src="bower_components/bespoke-hash/dist/bespoke-hash.min.js"></script><script src="bower_components/bespoke-state/dist/bespoke-state.min.js"></script><script src="bower_components/prism/prism.js"></script><script src="scripts/prism-modelica.js"></script><script src="scripts/main.js"></script></body></html>
