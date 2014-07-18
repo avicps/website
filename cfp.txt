@@ -2,12 +2,12 @@
          CALL FOR PAPERS & DEADLINE EXTENSION - AVICPS '11 (co-located with RTSS '11)
 -----------------------------------------------------------------------------------------------------------------------------------------
 
-         2nd Analytic Virtual Integration of Cyber-Physical Systems Workshop
-                    November 30, Vienna, Austria
+         5th Analytic Virtual Integration of Cyber-Physical Systems Workshop
+                    December 20, Rome, Italy
 
-               AVICPS '11 is held in conjunction with the
-            32nd IEEE Real-Time Systems Symposium (RTSS '11)
-              November 29 - December 2, Vienna, Austria
+               AVICPS '14 is held in conjunction with the
+            35th IEEE Real-Time Systems Symposium (RTSS '14)
+              December 3 - 5, Rome, Italy
 
 
 [Note: The deadline has been extended and we also welcome the submission of short papers/position papers. 
@@ -88,37 +88,28 @@ ftp://pubftp.computer.org/Press/Outgoing/proceedings/IEEE_CS_Latex8.5x11x2.zip
 
 All figures, references, etc. must fit within the 8 page limit. Papers that do not meet these requirements 
 will not be reviewed. All submissions should be in the PDF format and submitted at the following link:
-http://www.easychair.org/conferences/?conf=avicps2010
+<Actual Link> here
 
 Submission of the paper implies that should the paper be accepted, at least one of the authors will 
 register and present the paper at the workshop. 
 
-Please contact Dioniso de Niz (dionisio@sei.cmu.edu) or Sibin Mohan (sibin@cs.uiuc.edu) for 
-further information or if you wish to submit a paper but may have difficulties meeting the deadline.
+Please contact Sibin Mohan (sibin@illinois.edu) or Jean-Pierre Talpin
+(Jean-Pierre.Talpin@inria.fr) for further information or if you wish to submit a 
+paper but may have difficulties meeting the deadline.
 ------------------------------------------------------------------------------------------
 IMPORTANT DATES
 
       IMPORTANT DATES
 
-      Submission deadline:	September 30, 2011
-      Notification:		    October 15, 2011
-      Camera-ready version:	November 3, 2011
-      Workshop:			    November 30, 2011
+      Submission deadline:	
+      Notification:	
+      Camera-ready version:	
+      Workshop:		
 
 ------------------------------------------------------------------------------------------
-Rahul Mangharam. University of Pennsylvania. (co-chair)
-Peter Feiler. Software Engineering Institute (SEI) (co-chair)
+Sibin Mohan. University of Illinois at Urbana-Champaign (UIUC) (co-chair)
+Jean-Pierre Talpin. INRIA, France. (co-chair)
 
 PROGRAM COMMITTEE
-Kirstie Bellman,Aerospace Corp.
-Jerome Hugues, Institut supérieur de l'aéronautique et de l'espace(ISEA)
-Bruce Krogh, Carnegie Mellon University.
-Jorgen Hansson, Chalmers University.
-Dionoso de Niz. Software Engineering Institute (SEI)
-Sibin Mohan. University of Illinois at Urbana-Champaign (UIUC)
-Thomas Noll, RWTH Aachen
-Julien Delange, European Space Agency (ESA)
-Eric Senn, Universit?de Bretagne Sud (UBS)
-Mirko Jakovljevic, TTTech
-K. C. Shashidhar, Max Planck Institute for Software Systems, Germany
-------------------------------------------------------------------------------------------
+
+<Coming Soon>
