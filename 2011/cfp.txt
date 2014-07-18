@@ -111,14 +111,14 @@ Peter Feiler. Software Engineering Institute (SEI) (co-chair)
 
 PROGRAM COMMITTEE
 Kirstie Bellman,Aerospace Corp.
-Jerome Hugues, Institut supérieur de l'aéronautique et de l'espace(ISEA)
+Jerome Hugues, Institut supérieur de l'aeronautique et de l'espace(ISEA)
 Bruce Krogh, Carnegie Mellon University.
 Jorgen Hansson, Chalmers University.
 Dionoso de Niz. Software Engineering Institute (SEI)
 Sibin Mohan. University of Illinois at Urbana-Champaign (UIUC)
 Thomas Noll, RWTH Aachen
 Julien Delange, European Space Agency (ESA)
-Eric Senn, Universit?de Bretagne Sud (UBS)
+Eric Senn, Universitade Bretagne Sud (UBS)
 Mirko Jakovljevic, TTTech
 K. C. Shashidhar, Max Planck Institute for Software Systems, Germany
 ------------------------------------------------------------------------------------------
