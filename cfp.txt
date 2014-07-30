@@ -1,115 +1,144 @@
------------------------------------------------------------------------------------------------------------------------------------------
-         CALL FOR PAPERS & DEADLINE EXTENSION - AVICPS '11 (co-located with RTSS '11)
------------------------------------------------------------------------------------------------------------------------------------------
 
-         5th Analytic Virtual Integration of Cyber-Physical Systems Workshop
-                    December 20, Rome, Italy
+                          AVICPS 2014
 
-               AVICPS '14 is held in conjunction with the
-            35th IEEE Real-Time Systems Symposium (RTSS '14)
-              December 3 - 5, Rome, Italy
+                  The 5th Analytic Virtual 
+        Integration of Cyber-Physical Systems Workshop
+
+                 Rome, Italy, December 2, 2014. 
+                  (Co-located with RTSS 2014)
+      
+         *** Paper Submission: September 29, 2014 ***
+
+                       CALL FOR PAPERS
+
+The Analytic Virtual Integration Cyber-Physical Systems (AVICPS)
+workshop focuses on analytic techniques that enable the early
+discovery of faults in CPS before the system is integrated or its
+parts are built. Such an approach is known as analytic virtual
+integration. The objective is to discover and resolve problems early
+during the design and implementation phases where cost impact is low.
+
+Topics of interest include, but are not limited to:
+   * A quantitative and early analysis of end-to-end system 
+     architecture performance that incorporates realistic hardware 
+     details (e.g. multi-core, memory architectures, I/O, 
+     network-on-chip, etc.) and workloads (e.g. video streams, 
+     weather data, GPS, critical messages, etc.)
+   * Fault tolerance technologies for handling the combination 
+     of faults in computing and communication hardware and software 
+	 and physical system disturbances.
+   * Safety analysis such as model checking for mixed criticality 
+     CPS applications (e.g., flight management systems and safe 
+     interoperability of medical devices).
+   * System level optimization technologies that support the 
+     combinatorial optimization of task scheduling and allocation, 
+     I/O, and network traffic routing.
+   * Security protocol development and verification techniques for 
+     CPS applications.
+   * Modeling, simulation, and verification techniques for virtual 
+     integration.
+   * Models for describing or quantifying the environment that 
+     systems must operate in.
+   * Quantitative measurements of the advantages of virtual 
+     integration.
+   * Formal methods for defining and reasoning about internal and
+     external interfaces of the system and its parts.
+   * Cross-domain compositional theories and technologies for CPS.
+   * Mitigation of heterogeneous timing and quantitative constraints 
+     using constraints.
+   * Abstraction, refinement, conformance of heterogeneous 
+     interfaces (e.g., discrete/continuous interfaces).
+   * Abstraction and acceleration techniques in simulation 
+     and verification.
 
 
-[Note: The deadline has been extended and we also welcome the submission of short papers/position papers. 
-Please contact the Conference Organizers if you wish to submit a paper but have problems meeting the deadline.]
-------------------------------------------------------------------------------------------
-  Web site: http://www.analyticintegration.org/
-------------------------------------------------------------------------------------------
 
-Cyber Physical Systems (CPS) are software-based systems that control and interact with 
-physical processes. Such systems play a key role in an ever increasing number of industries.
-For example, over 80% of the innovations in automotive systems are for cyber-enabled 
-system capabilities. Modern aircraft are carefully co-designed and tightly integrated CPS 
-machines. This trend is also demonstrated by modern medical systems. The movement 
-towards increasing dependency on software is driven by the fact that software enables the 
-delivery of a large number of customized  capabilities in a product using a relatively small 
-number of physical and computing platforms.
+SUBMISSION
 
-However, the co-design of physical platforms, computer systems, and embedded software 
-systems and their tight integration also creates a high degree of complexity of interactions 
-within and across these systems that far exceeds the capability of existing system composition 
-technologies.  These technologies are of paramount importance to industries that integrate 
-independently-developed parts into their final products (e.g. automotive and avionics). 
-Furthermore, even though analytical models of such systems are currently used to predict 
-different system-level properties they are often developed on a property-by-property basis 
-by different teams leading to inconsistent assumptions and conclusions. The lack of effective 
-system-wide analytical results prevents the discovery of design flaws that stem from the 
-interaction complexity of the system parts; i.e. prevented until the system is physically 
-integrated. Due to such flaws, the system integration time often exceeds 50% of the total 
-development time for non-safety critical applications. In safety critical systems, such as 
-avionics, the system integration and certification time often exceeds 70% of total development 
-time and costs.
+The AVICPS workshop welcomes original contributions on
+theoretical foundation, tools, and evaluations.  Of particular 
+interest are case studies on challenges of expressing properties 
+of systems in terms of their components and the architecture 
+that governs their interactions. Both solutions and open problems 
+are welcome.
 
-Looking ahead, the success of next generation CPS systems demands system-wide architecture 
-design patterns and supporting technologies that can integrate legacy components, COTS 
-components and co-designed new components in such a way that properties such as real 
-time, safety, fault tolerance and security can be analyzed and predicted before the systems 
-are physically built. Moreover, it is necessary to have a system-wide composition model that 
-integrates the different analyses into a single consistent semantic framework to avoid 
-conflicting results. 
+Researchers and practitioners are encouraged to submit two types 
+of papers:
 
-This workshop focuses on analytical system composition technologies that will 
-eventually include:
-(1) Composition technologies to automatically propagate the impact of modifications in 
-one modeling domain into others.
-(2) Assumption resolution between modeling abstractions and constructs of different 
-analysis domains. 
-(3) System-level schedulability optimization technologies that integrate constraints 
-imposed by other analytic domains (E.g: security, mechanical stress, heat dissipation, etc.)
-(4) A quantitative and early analysis of the system architecture performance in an 
-end-to-end fashion, deriving perhaps even the worst/best/average case behaviour for the 
-entire platform and new hardware abstractions. In fact, existing task/system models reason 
-at levels that are well abstracted away from real details (and variations inherent in) 
-hardware components (e.g. multicores, memory architectures, I/O, network-on-chip, 
-etc.). They also are unable to cope with workloads that are beyond the capabilities of 
-traditional computational resources (e.g. video streams, weather data, GPS, etc.)
-(5) Fault tolerance technologies and reliability analysis techniques that integrate the 
-different natures of physical, hardware and software faults in a common, consistent framework.
-(6) Safety analysis such as model checking for mixed criticality CPS applications, for 
-example, flight management systems and/or safe medical devices plug and play (MDPnP)
-(7) Security protocol development and verification techniques for CPS applications.
-(8) Models for describing/quantifying the environments where such systems must operate.
+    * Research papers that present novel ideas, mature tools, 
+      results, and advancement of the state-of-the-art.
+    * Position papers that describe ongoing work, less
+      mature work, or new research directions. 
 
-The goal of this workshop is to explore architecture design patterns, tools and the theoretical 
-analytical foundations for creating common system-wide composition models where key 
-properties can be studied and guarantees provided before the start of actual development. 
-Of particular interest are the case studies on the challenges of expressing the properties of 
-the final product in terms of component properties and the architecture that governs their 
-interactions. Both solutions and/or open problems are welcome.
-------------------------------------------------------------------------------------------
-PAPER SUBMISSION
+Submissions should be no more than 8 pages (for research
+papers) and 4 pages (for position papers) in two-column format. 
+Templates and author guidelines are available for LaTeX and 
+Microsoft Word. All figures and references must fit within the 
+specified page limits. 
 
-We encourage the submission of papers that present novel ideas, state-of-the-art, work-in-progress and 
-suggest open issues. We also encourage the submission of position papers.
 
-Submissions should be no more than 8 pages in two-column, single spaced, 10 pt format. 
-Suggested latex style file from IEEE: 
-ftp://pubftp.computer.org/Press/Outgoing/proceedings/IEEE_CS_Latex8.5x11x2.zip
+PUBLICATION
 
-All figures, references, etc. must fit within the 8 page limit. Papers that do not meet these requirements 
-will not be reviewed. All submissions should be in the PDF format and submitted at the following link:
-<Actual Link> here
+Authors of accepted papers may choose one of the following 
+alternatives.
 
-Submission of the paper implies that should the paper be accepted, at least one of the authors will 
-register and present the paper at the workshop. 
+    * To include their paper in formal electronic proceedings 
+      published by LiU Electronic Press. The proceedings are 
+      given both ISBN and ISSN numbers. Authors retain the 
+      copyright of their work.
+    * To not include it in the proceedings, thus make it possible 
+      to refine and submit the work elsewhere. Only a title and a 
+      short abstract of the paper will be available in the 
+      proceedings. An informal copy of the accepted paper will 
+      be available on the AVICPS website.
 
-Please contact Sibin Mohan (sibin@illinois.edu) or Jean-Pierre Talpin
-(Jean-Pierre.Talpin@inria.fr) for further information or if you wish to submit a 
-paper but may have difficulties meeting the deadline.
-------------------------------------------------------------------------------------------
+Regardless of the author's choice of dissemination, the reviewing 
+process and the presentation time at the workshop will be the same. 
+For all accepted papers, at least one of the authors must register 
+and present the paper at the workshop.
+
+
 IMPORTANT DATES
 
-      IMPORTANT DATES
+Paper Submission: Sept. 29, 2014
+Author Notification: Oct. 15, 2014
+Camera Ready: Oct. 30, 2014
+AVICPS Workshop: Dec. 2, 2014
 
-      Submission deadline:	
-      Notification:	
-      Camera-ready version:	
-      Workshop:		
 
-------------------------------------------------------------------------------------------
-Sibin Mohan. University of Illinois at Urbana-Champaign (UIUC) (co-chair)
-Jean-Pierre Talpin. INRIA, France. (co-chair)
+WORKSHOP ORGANIZATION
 
-PROGRAM COMMITTEE
+Program Co-Chairs:
+* Sibin Mohan. University of Illinois at Urbana-Champaign, USA.
+* Jean-Pierre Talpin. INRIA, France.
 
-<Coming Soon>
+Program Committee:
+Manfred Broy, Technical University Munich, Germany 
+Jerome Hugues, ISAE, France 
+Vania Joloboff, INRIA, France
+Russell Kegley, Lockheed Martin, USA
+T. John Koo, The University of Hong Kong, Hong Kong
+Min-Young Nam, Univeristy of Illinois t Urbana-Champaign, USA
+Henrik Nilsson, University of Nottingham, UK
+Roman Obermaisser, University of Siegen, Germany
+Miroslav Pajic, Duke University
+Linh Thi Xuan Phan, University of Pennsylvania, USA 
+Franz Rammig, Univerity of Paderborn, Germany
+Walid Taha, Halmstad University, Sweden
+Shige Wang, GM Research, USA
+Huafeng Yu, Toyota ITC, USA
+Dirk Zimmer, DLR Oberpfaffenhofen, Germany
+
+
+For further information, including submission guidelines, see the
+AVICPS Workshop website: http://www.analyticintegration.org/
+
+
+
+
+
+
+
+
+
+
