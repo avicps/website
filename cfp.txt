@@ -114,6 +114,7 @@ Program Co-Chairs:
 
 Program Committee:
 Manfred Broy, Technical University Munich, Germany 
+Arvind Easwaran, Nanyang Technological University, Singapore
 Jerome Hugues, ISAE, France 
 Vania Joloboff, INRIA, France
 Russell Kegley, Lockheed Martin, USA
